@@ -38,7 +38,7 @@ const uploadFile = async (req, res) => {
     } catch (error) {
         res.send(500).json({
             message: "error while uploading file",
-            error
+            error: error.message
         })
     }
 }
@@ -48,3 +48,4 @@ module.exports = uploadFile
 //  expiry date
 
 //  file + expiry date
+

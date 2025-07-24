@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 
-let PORT = 3000
+let PORT = process.env.PORT || 3000
 
 mongoose.connect(process.env.MONGODB_URL).then(()=>console.log('db connected')).catch((err)=>console.log('got error while connecting db', err))
 
@@ -22,3 +22,9 @@ app.use('/api/v1/file', fileRouter)
 app.listen(PORT, () => {
     console.log(`your server is running at http://localhost:${PORT}`)
 })
+
+
+//  file sharing system
+//  sender ==> cloud ==> reciever
+
+
