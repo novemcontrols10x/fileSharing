@@ -2,10 +2,16 @@ const express = require('express')
 const fileRouter = require('./routes/FileRoutes')
 const { default: mongoose } = require('mongoose')
 const { configDotenv } = require('dotenv')
+const cors = require('cors')
 configDotenv()
+
+
 
 const app = express()
 app.use(express.json())
+app.use(cors({
+    origin:'*'
+}))
 
 
 let PORT = process.env.PORT || 3000

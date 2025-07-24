@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>upload file</h1>
+    <form action="" id="uploadform">
+        <input type="file" name="file" id="">
+        <button type="submit">upload</button>
+    </form>
+
+    <div id="result"></div>
+
+</body>
+
+<script>
+
+    const form = document.getElementById('uploadform');
+    const resultDiv = document.getElementById('result')
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form)
+
+        const res = await fetch('https://filesharing-p1lj.onrender.com/api/v1/file/upload', {
+            method: 'POST',
+            body: formData
+        })
+
+        const data = await res.json();
+
+        console.log(data)
+
+    })
+
+</script>
+
+</html>
